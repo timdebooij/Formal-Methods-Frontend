@@ -1,0 +1,156 @@
+<div>
+    <h1 class="header">Expression Section</h1>
+    <div style="display: flex;">
+        <mat-card style="margin-bottom: 100px; flex: 1 1 auto; max-width: 40%; max-height: 50%; background-color: white">
+            <mat-card-title class="black-text-title">Expression generator</mat-card-title>
+            <mat-card-subtitle style="color: #7a7a7b;">In this section you can create your own expressions and perform multiple operations on them. 
+                First fill in the expression and validate it to check the syntax, for examples see the Expression examples.
+            </mat-card-subtitle>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+
+
+
+
+            <div class="wrapper">
+                <div><p>Enter expression: </p></div>
+                <div><mat-form-field style=" align-content: center;" appearance="legacy">
+                    <mat-label class="black-text">Expression</mat-label>
+                    <input floatLabel="auto" matInput type="string" [(ngModel)]="expression"></mat-form-field>
+                </div>
+                <div><button style="margin-top: 10px;" mat-raised-button color="primary"  (click)="getExpression()">Validate expression</button></div>
+            </div>
+            <mat-divider style="color: #282F42;"></mat-divider>
+            <p class="black-text">Amount of words in the language: {{sizeHtml}} </p>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+            <div style="display: flex;">
+                <div style="margin-right: 10px;">
+                    <p class="black-text">Words in language:</p>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>position</th>
+                                <th>word</th>
+                            </tr>
+                        </thead>
+                        <tbody style="overflow-y: auto; max-height:250px;">
+                            <tr  *ngFor="let item of languageList">
+                                <td>
+                                    {{item.position}}
+                                </td>
+                                <td>
+                                    {{item.word}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+                <div>
+                    <p class="black-text">Words not in language:</p>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>position</th>
+                                <th>word</th>
+                            </tr>
+                        </thead>
+                        <tbody style="overflow-y: auto; max-height:250px;">
+                            <tr  *ngFor="let item of nonLanguageList">
+                                <td>
+                                    {{item.position}}
+                                </td>
+                                <td>
+                                    {{item.word}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div >
+            
+        </mat-card>
+
+        
+    
+        <mat-card style="margin-bottom: 100px; flex: 1 1 auto; margin-left: 10px; max-width: 40%; max-height: 50%; background-color: white">
+            <mat-card-title class="black-text-title">Expression examples</mat-card-title>
+            <mat-card-subtitle style="color: #7a7a7b;">In this section you can choose from multiple premade 
+                expressions to get familiar with the syntax and what they perform</mat-card-subtitle>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+
+            <div class="wrapper">
+                <div><p class="black-text">Choose expression:</p></div>
+                <div><mat-form-field appearance="fill">
+                    <mat-label class="black-text">Expression</mat-label>
+                    <select matNativeControl required id="input_expression" [(ngModel)]="selectedOption" (change)="onChange()">
+                        <option value="(baa)">(baa)</option>
+                        <option value="(baa | bb)">(baa | bb)</option>
+                      <option value="(a|b)*">(a|b)*</option>
+                      <option value="(baa | bb)+(a|b)*">(baa | bb)+ (a|b)*</option>
+                      <option value="(a|b|c)*">(a|b|c)*</option>
+                      <option value="(baa | bb)+(c)">(baa | bb)+ (c)</option>
+                    </select>
+                  </mat-form-field></div>
+                  <div></div>
+            </div>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+            <p class="black-text">Amount of words in the language: {{standardSizeHtml}} </p>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+            <div style="display: flex;">
+                <div style="margin-right: 10px;">
+                    <p class="black-text">Words in language:</p>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>position</th>
+                                <th>word</th>
+                            </tr>
+                        </thead>
+                        <tbody style="overflow-y: auto; max-height:250px;">
+                            <tr  *ngFor="let item of standardLanguageList">
+                                <td>
+                                    {{item.position}}
+                                </td>
+                                <td>
+                                    {{item.word}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+                <div>
+                    <p class="black-text">Words not in language:</p>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>position</th>
+                                <th>word</th>
+                            </tr>
+                        </thead>
+                        <tbody style="overflow-y: auto; max-height:250px;">
+                            <tr  *ngFor="let item of standardNonLanguageList">
+                                <td>
+                                    {{item.position}}
+                                </td>
+                                <td>
+                                    {{item.word}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+            
+
+        </mat-card>
+    </div>
+    
+
+
+
+</div>
+    
+

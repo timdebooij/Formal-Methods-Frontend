@@ -1,0 +1,60 @@
+.mat-toolbar.mat-primary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #485158;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+  }
+
+  .white-text-title {
+    font-size: 25px;
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+  }
+
+  .white-text {
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+  }
+
+  .example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+
+.example-item {
+    height: 50px;
+}
+
+.header{
+  color:#8b9bab;
+}
+
+.black-text{
+  color: #7a7a7b;
+  font-size: 14px;
+}
+
+.black-text-title{
+  color: #8e8e95;
+  font-size: 25px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-gap: 3px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}

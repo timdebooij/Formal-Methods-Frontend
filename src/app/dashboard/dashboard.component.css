@@ -1,0 +1,65 @@
+
+
+  .toolbar{
+    background: #2e3a81;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 4%;
+    min-height: 25px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 140px;
+    position: fixed;
+    z-index: 1;
+    top: 50;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 10px;
+    background-color: #3F51B5;
+    /* #6274db*/
+  }
+
+  .active-list-item {
+    background-color: #2e3a81 !important;
+    
+  }
+
+ 
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .main {
+    margin-left: 140px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    
+  }
+
+  .sideBarItem{
+    color:white; 
+    font-size:22px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin: 4px;
+  }
+
+  .background{
+    background-color: #edecec;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  

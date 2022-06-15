@@ -1,0 +1,85 @@
+.mat-toolbar.mat-primary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #485158;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+  }
+
+  .white-text-title {
+    font-size: 25px;
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+  }
+
+  .white-text {
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+  }
+
+  .example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+
+.example-item {
+    height: 50px;
+}
+
+.header{
+  color:#8b9bab;
+}
+
+.black-text{
+  color: #7a7a7b;
+}
+
+.black-text-title{
+  color: #8e8e95;
+  font-size: 25px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-gap: 3px;
+  background-color: #fff;
+  color: #444;
+  margin-top: 20px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 0px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 250px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #3F51B5;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #3F51B5;
+
+}

@@ -1,0 +1,187 @@
+<div style=" height: 100%; width: 100%; overflow-y: scroll;">
+    <h1 class="header">DFA/NDFA Section</h1>
+    
+        <mat-card   style=" width: 98%; background-color: white">
+            <mat-card-title class="black-text-title">DFA/NDFA Sandbox</mat-card-title>
+            <mat-card-subtitle style="color: #7a7a7b;">In this section you can create your own DFA and NDFA, if you need an example look in the DFA/NDFA examples section.
+            </mat-card-subtitle>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+            <div  style="display: flex;">
+            <div id="DFACard" style="max-width: 50%; border-right:1px solid rgb(218, 218, 218);">
+            
+            
+
+            <div   style="padding-top: 15px;">
+                <div class="wrapper">
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><p style="margin-right: 5px;" class="black-text">Load premade network:</p></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>id</mat-label>
+                        <input  floatLabel="auto" matInput type="string" [(ngModel)]="id">
+                        
+                    </mat-form-field></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218); text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="getNetworkBack()">Load</button> </div>
+                    <div ><p style="margin-right: 5px;" class="black-text">Create network with alphabet:</p></div>
+                    <div ><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Id</mat-label>
+                        <input matInput floatLabel="always" type="number" [(ngModel)]="newId">
+                    </mat-form-field></div>
+                    <div></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Alphabet</mat-label>
+                        <input matInput floatLabel="always" type="string" [(ngModel)]="alphabet">
+                    </mat-form-field></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218); text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="createNewNetwork()">Create</button></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><p style="margin-right: 5px;" class="black-text">Add State:</p></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>State</mat-label>
+                        <input matInput type="string" [(ngModel)]="state">
+                    </mat-form-field></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218); text-align: right;"><button style=" width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="addState()">Add</button></div>
+                    <div><p style="margin-right: 5px;" class="black-text">Add Transition:</p></div>
+                    <div><mat-form-field>
+                        <mat-label class="black-text">From State </mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="from">
+                            <option *ngFor="let o of config.states">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div></div>
+                    <div></div>
+                    <div><mat-form-field>
+                        <mat-label class="black-text">Letter </mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="letter">
+                            <option *ngFor="let o of config.alphabet">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field>
+                        <mat-label class="black-text">To State </mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="to">
+                            <option *ngFor="let o of config.states">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218); text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="addTransition()">Add</button></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><p style="margin-right: 5px;" class="black-text">Define Endstate:</p></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label class="black-text">State</mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="endState">
+                            <option *ngFor="let o of config.states">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218); text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="setEndState()">Define</button></div>
+                    <div><p style="margin-right: 5px;" class="black-text">Define startstate:</p></div>
+                    <div><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label class="black-text">State</mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="startState">
+                            <option *ngFor="let o of config.states">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div style="text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="setStartState()">Define</button></div>
+                  </div>
+
+
+                <div>
+                        <p style="color:red" *ngIf="checkReturn()">{{config.errorMessage}}</p>
+                </div>
+                
+            </div> 
+        </div>
+        <div id="networkWidth" style="margin-left: 3px; min-width: 50%; min-height: 50%; width: 50%; height: 100%;">
+            <div>
+                <p class="black-text">Current alphabet: {{config.alphabet}}</p>
+                <p class="black-text">Current states: {{config.states}}</p>
+                <p class="black-text">Current id: {{config.id}}</p>
+                <p class="black-text">Is DFA: {{config.isDfa}}</p>
+            </div>
+            <div style=" background-color: white;min-height: 100%; width: 100%;" id="visNetwork" #visNetwork></div>
+        </div> 
+        </div>
+        </mat-card>
+        
+    
+        <mat-card style="margin-top: 10px; margin-bottom: 100px; width: 98%; min-height: 200px; background-color: white">
+            <mat-card-title class="black-text-title">DFA/NDFA examples</mat-card-title>
+            <mat-card-subtitle style="color: #7a7a7b;">In this section you can choose from multiple premade 
+                DFA and NDFA's to get familiar with the syntax and what they perform. Or choose to construct a new one by filling in some simple information.</mat-card-subtitle>
+            <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+
+
+            <div  style="display: flex;">
+                <div id="DFACard" style="margin-top: 10px;  max-width: 35%; height: fit-content;" class="wrapper">
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><p style="margin-right: 5px;" class="black-text">Choose premade network:</p></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style=" border-top: 250px; align-content: center;">
+                        <mat-label class="black-text">Network</mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="exampleId">
+                            <option *ngFor="let o of config.ids">
+                                {{o}}
+                             </option>
+                        </select>
+                    </mat-form-field></div>
+                    <div style="text-align: right; border-bottom: 1px solid rgb(218, 218, 218);"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="loadNetwork()">Load</button></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><p style="margin-right: 5px;" class="black-text">Check if word is in current loaded DFA/NDFA:</p></div>
+                    <div style="border-bottom: 1px solid rgb(218, 218, 218);"><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Word:</mat-label>
+                        <input matInput type="string" [(ngModel)]="word">
+                    </mat-form-field>
+                    <div *ngIf="show"><div style="color: green;" *ngIf="wordCheck.inLanguage else elseBlock">{{checkedWord}} is in the language</div>
+                    <ng-template  #elseBlock><div style="color: red;">{{checkedWord}} is not in the language</div></ng-template>
+                </div>
+                    </div>
+                    <div style="text-align: right; border-bottom: 1px solid rgb(218, 218, 218);"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="checkWord()">Check</button></div>
+                    <div ><p style="margin-right: 5px;" class="black-text">Construct new network:</p></div>
+                    <div><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>id:</mat-label>
+                        <input matInput type="number" [(ngModel)]="constructId">
+                    </mat-form-field></div>
+                    <div></div>
+                    <div></div>
+                    <div><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Starting with:</mat-label>
+                        <input matInput type="string" [(ngModel)]="startString">
+                    </mat-form-field></div>
+                    <div></div>
+                    <div></div>
+                    <div><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Containing:</mat-label>
+                        <input matInput type="string" [(ngModel)]="contString">
+                    </mat-form-field></div>
+                    <div></div>
+                    <div></div>
+                    <div><mat-form-field style="font-size: 14px;" floatLabel="auto" appearance="legacy">
+                        <mat-label>Ending with:</mat-label>
+                        <input matInput type="string" [(ngModel)]="endString">
+                    </mat-form-field></div>
+                    <div style="text-align: right;"><button style="width: 75px; margin-top: 10px;" mat-raised-button color="primary" (click)="constructNetwork()">Create</button></div>
+                    <div>
+                        <p style="color:red" *ngIf="checkExampleReturn()">{{exampleConfig.errorMessage}}</p>
+                    </div>
+                    
+                </div>
+                
+
+                
+                <div id="networkWidth" style="border-left:1px solid rgb(218, 218, 218); margin-left: 3px; min-width: 50%; min-height: 50%; width: 50%; height: 100%;">
+                    <div>
+                        <p class="black-text">Current alphabet: {{exampleConfig.alphabet}}</p>
+                        <p class="black-text">Current states: {{exampleConfig.states}}</p>
+                        <p class="black-text">Current id: {{exampleConfig.id}}</p>
+                        <p class="black-text">Is DFA: {{exampleConfig.isDfa}}</p>
+                    </div>
+                    <div style=" background-color: white;min-height: 100%; width: 100%;" id="visExampleNetwork" #visExampleNetwork></div>
+                </div>
+            </div>
+            
+        </mat-card>
+    
+</div>

@@ -1,0 +1,113 @@
+<div style=" height: 100%; width: 100%; overflow-y: scroll;">
+    <h1 class="header">DFA Operations</h1>
+    <mat-card   style="margin-bottom: 15px; width: 98%; background-color: white">
+        <mat-card-title class="black-text-title">DFA And/Or operation</mat-card-title>
+        <mat-card-subtitle style="color: #7a7a7b;">In this section you can perform operations on two DFA's.
+        </mat-card-subtitle>
+        <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+        <div   style="padding-top: 15px;">
+            <div class="wrapper">
+                <div style="border-right: 1px solid rgb(218, 218, 218);">
+
+                    <div class="wrapper">
+                        <div><p style="margin-right: 10px; padding-top: 8px;" class="black-text">Select first DFA:</p></div>
+                        <div><mat-form-field>
+                            <mat-label class="black-text">DFA</mat-label>
+                            <select matNativeControl required id="input_expression" [(ngModel)]="first">
+                                <option *ngFor="let o of idConfig.ids">
+                                    {{o}}
+                                 </option>
+                            </select>
+                        </mat-form-field></div>
+                        <div style="text-align: right;"><button style="width: 75px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="getFirstDfa()">Load</button></div>
+                    </div>
+                    
+                    
+                </div>
+                <div style="border-right: 1px solid rgb(218, 218, 218);">
+                
+                    <div class="wrapper">
+                        <div><p style="margin-right: 10px; padding-top: 8px;" class="black-text">Select second DFA:</p></div>
+                        <div><mat-form-field>
+                            <mat-label class="black-text">DFA</mat-label>
+                            <select matNativeControl required id="input_expression" [(ngModel)]="second">
+                                <option *ngFor="let o of idConfig.ids">
+                                    {{o}}
+                                 </option>
+                            </select>
+                        </mat-form-field></div>
+                        <div style="text-align: right;"><button style="width: 75px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="getSecondDfa()">Load</button></div>
+                    </div>
+                   
+                </div>
+                <div ><div style="display: flex;">
+                    <p style="margin-right: 10px; padding-top: 8px;" class="black-text">Choose operation:</p>
+                    <mat-form-field style="margin-right: 10px;">
+                        <mat-label class="black-text">DFA</mat-label>
+                        <select matNativeControl required id="input_expression" [(ngModel)]="operation">
+                            <option value="concat">and/concatenation</option>
+                            <option value="union">or/union</option>
+                        </select>
+                    </mat-form-field>
+                    
+                    <button style="width: 75px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="getThirdDfa()">Load</button>
+                </div>
+                <p style="color:red" *ngIf="checkThirdReturn()">{{thirdConfig.errorMessage}}</p>
+                </div>
+                <div style="border-right: 1px solid rgb(218, 218, 218);"><div style=" background-color: white;min-height: 100%; width: 100%;" id="firstVisNetwork" #firstVisNetwork></div></div>
+                <div style="border-right: 1px solid rgb(218, 218, 218);"><div style=" background-color: white;min-height: 100%; width: 100%;" id="secondVisNetwork" #secondVisNetwork></div></div>
+                <div><div style=" background-color: white;min-height: 100%; width: 100%;" id="thirdVisNetwork" #thirdVisNetwork></div></div>
+            </div>
+        </div>
+            
+
+    </mat-card>
+
+    <mat-card   style="margin-bottom: 100px; width: 98%; background-color: white">
+        <mat-card-title class="black-text-title">DFA Not operation</mat-card-title>
+        <mat-card-subtitle style="color: #7a7a7b;">In this section you can get the reverse of a DFA.
+        </mat-card-subtitle>
+        <mat-divider style="color: #282F42; padding-bottom: 5px;"></mat-divider>
+
+
+        <div   style="padding-top: 15px;">
+            <div class="wrapper">
+                <div style="border-right: 1px solid rgb(218, 218, 218);">
+
+                    <div class="wrapper">
+                        <div><p style="margin-right: 10px; padding-top: 8px;" class="black-text">Select DFA:</p></div>
+                        <div><mat-form-field>
+                            <mat-label class="black-text">DFA</mat-label>
+                            <select matNativeControl required id="input_expression" [(ngModel)]="reverse">
+                                <option *ngFor="let o of idConfig.ids">
+                                    {{o}}
+                                 </option>
+                            </select>
+                        </mat-form-field></div>
+                        <div style="text-align: right;"><button style="width: 75px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="getTemplateDfa()">Load</button></div>
+                    </div>
+                    
+                    
+                </div>
+                <div style="border-right: 1px solid rgb(218, 218, 218);">
+                
+                    <div class="wrapper">
+                        <div><p style="margin-right: 10px; padding-top: 8px;" class="black-text">Load result:</p></div>
+
+                        <div style="text-align: right;"><button style="width: 75px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="getReverseDfa()">Load</button></div>
+                    </div>
+                   
+                </div>
+                <div >
+                </div>
+
+                <div style="border-right: 1px solid rgb(218, 218, 218);"><div style=" background-color: white;min-height: 100%; width: 100%;" id="templateVisNetwork" #templateVisNetwork></div></div>
+                <div style="border-right: 1px solid rgb(218, 218, 218);"><div style=" background-color: white;min-height: 100%; width: 100%;" id="reverseVisNetwork" #reverseVisNetwork></div></div>
+                <div></div>
+            </div>
+        </div>
+    
+    </mat-card>
+
+</div>
+    

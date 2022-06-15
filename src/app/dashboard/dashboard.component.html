@@ -1,0 +1,26 @@
+
+  <div class="background">
+    <div>
+      <mat-toolbar class="toolbar" style=" z-index: 1000;">
+        <mat-toolbar-row>
+            <p style="color: white; font-size:25px;">Formal Methods Project</p>
+            <p style="color: white; font-size: 15px; margin-left: 60px;">By Tim de Booij     studentnumber: 2089436</p>
+            <button style="margin-left: 50px; width: 125px; margin-top: 10px; height: fit-content;" mat-raised-button color="primary" (click)="Reset()">Reset API</button>
+          
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <div class="sidenav" >
+      <a routerLink="/expression"><p class="sideBarItem" routerLinkActive="active-list-item">Expression</p></a>
+      <a routerLink="/network"><p class="sideBarItem" routerLinkActive="active-list-item">DFA/NDFA</p></a>
+      <a routerLink="/operator"><p class="sideBarItem" routerLinkActive="active-list-item">DFA Operations</p></a>
+      <a routerLink="/translation"><p class="sideBarItem" routerLinkActive="active-list-item">Translations</p></a>
+      <a routerLink="/grammar"><p class="sideBarItem" routerLinkActive="active-list-item">Grammar</p></a>
+    </div>
+    <div class="main" >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+ 
+
+
