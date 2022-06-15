@@ -2,7 +2,7 @@
   "name": "formal-methods-frontend",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build formal-methods-frontend prod",
+    "heroku-postbuild": "ng build formal-methods-frontend",
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
